@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Example</title>
+  <style>
+  	.complete {
+  		text-decoration: line-through;
+  	}
+  	.hidden {
+  		display: none;
+  	}
+  </style>
+</head>
+<body>
+	<h4>Number of completed tasks: <span id="num-complete">0</span></h4>
+  <p onclick="toggleComplete(this)">Pay bills</p>
+  <p onclick="toggleComplete(this)">Wash car</p>
+  <p onclick="toggleComplete(this)">Get laundry</p>
+  <button onclick="hideCompletedTasks()">Hide completed tasks</button>
+  <button onclick="showAllTasks()">Show all tasks</button>
+
+  <script>
+  	function toggleComplete(ptag) {
+  		ptag.classList.toggle('complete');
+  		var countTag = document.querySelector('#num-complete');
+  		countTag.innerText = document.querySelectorAll('.complete').length;
+  	}
+  	function hideCompletedTasks() {
+  		var completedTasks = document.querySelectorAll('.complete');
+  		completedTasks.forEach(function(task){
+  			task.classList.add('hidden');
+  		});
+  	}
+  	function showAllTasks() {
+  		var completedTasks = document.querySelectorAll('.complete');
+  		completedTasks.forEach(function(task){
+  			task.classList.remove('hidden');
+  		});
+  	}
+  </script>
+</body>
+</html>
